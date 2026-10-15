@@ -1,3 +1,5 @@
+> **Unofficial fork:** local UI changes are reviewed in [Three-view adjustment](extensions/three-view-adjustment/README.md). This fork is not an official Charakuru release.
+
 <p align="center">
   <img src="docs/images/readme-hero.png" alt="Charakuru (きゃらくる): AI Character Modeling Kit, sponsored by Tripo" width="100%">
 </p>

@@ -1,0 +1,26 @@
+name: Three-view adjustment
+on:
+  pull_request:
+    paths:
+      - 'extensions/three-view-adjustment/**'
+      - '.github/workflows/guide-adjustment.yml'
+  push:
+    branches: ['pr/three-view-precision-controls']
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Fetch pinned official kit for tests only
+        shell: bash
+        run: |
+          curl --fail --location --silent --show-error --output "$RUNNER_TEMP/charakuru.zip" 'https://github.com/nanocle/Charakuru/releases/download/v1.0.4/charakuru-1.0.4-2026-10-12T17-55-01-211Z.zip'
+          echo '2438dff64e5573cd80bf8691c49713be96d4c46a4cd1dcce52108c4da83ba290  '"$RUNNER_TEMP/charakuru.zip" | sha256sum --check
+          unzip -q "$RUNNER_TEMP/charakuru.zip" -d "$RUNNER_TEMP/official"
+          echo "CHARAKURU_DIR=$RUNNER_TEMP/official/charakuru-1.0.4-2026-10-12T17-55-01-211Z" >> "$GITHUB_ENV"
+      - run: node --test extensions/three-view-adjustment/test/*.test.mjs
