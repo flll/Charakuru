@@ -1,0 +1,8 @@
+{
+  "name": "charakuru-guide-adjustment-tests",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=24.15.0"},
+  "scripts": {"test": "node --test test/*.test.mjs"},
+  "devDependencies": {"jsdom": "30.1.3"}
+}

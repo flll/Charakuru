@@ -153,8 +153,14 @@ export function createGuideAdjustmentUI(dialog, context, refresh) {
   preview.addEventListener('pointerdown',event=>{
     if(active&&event.button===0&&!commitAll()){event.preventDefault();event.stopImmediatePropagation();}
   },true);
+  toolbar.addEventListener('click',event=>{
+    if(active&&event.target.closest('button')&&!commitAll()){event.preventDefault();event.stopImmediatePropagation();}
+  },true);
   $('#threeViewLock').addEventListener('change',event=>{
-    if(active&&!commitAll()){event.stopImmediatePropagation();event.target.checked=!!get().draft?.views[get().direction]?.locked;}
+    if(!active)return;
+    const requested=event.target.checked;
+    if(!commitAll()){event.stopImmediatePropagation();event.target.checked=!!get().draft?.views[get().direction]?.locked;}
+    else event.target.checked=requested;
   },true);
   function sync() {
     if(!active)return;

@@ -24,7 +24,7 @@
 
 ## 導入・確認・復元
 
-Node.js 24と、公式Release ZIPを展開した **未改変のv1.0.4キット** が必要です。
+Node.js 24.15以降と、公式Release ZIPを展開した **未改変のv1.0.4キット** が必要です。
 ブラウザで未保存の変更がある場合は、先に保存するかキャンセルしてください。
 以下はこのリポジトリのルートから実行します。`/path/to/kit`はキットの展開フォルダへ置き換えてください。Windowsのパスも引用符で指定できます。
 
@@ -51,17 +51,19 @@ PowerShell:
 
 ```powershell
 $env:CHARAKURU_DIR = 'C:\path\to\fresh-official-kit'
-node --test extensions/three-view-adjustment/test/*.test.mjs
+npm ci --ignore-scripts --prefix extensions/three-view-adjustment
+npm test --prefix extensions/three-view-adjustment
 ```
 
 macOS / Linux:
 
 ```sh
-CHARAKURU_DIR=/path/to/fresh-official-kit node --test extensions/three-view-adjustment/test/*.test.mjs
+npm ci --ignore-scripts --prefix extensions/three-view-adjustment
+CHARAKURU_DIR=/path/to/fresh-official-kit npm test --prefix extensions/three-view-adjustment
 ```
 
 計算テストは公式の `guideMetrics` / `alignThreeViews` を読み込みます。別実装のコピーとの比較ではありません。
-インストーラーのテストは一時フォルダで行い、実プロジェクトを使いません。
+インストーラーのテストは一時フォルダで行い、実プロジェクトを使いません。入力イベントの回帰テストだけにjsdomを使用します。実アプリやインストーラーに追加依存はありません。
 詳細な画面検証は [検証記録](validation.md) を参照してください。
 
 ## 構成と扱い
