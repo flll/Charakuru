@@ -1,3 +1,5 @@
+> **非公式フォーク:** [三面図調整UIの改善案](extensions/three-view-adjustment/README.md)をこのフォーク内でレビューしています。公式のCharakuruリリースではありません。
+
 <p align="center">
   <img src="docs/images/readme-hero.png" alt="きゃらくる（Charakuru）：AIキャラクターモデリングキット。Sponsored by Tripo" width="100%">
 </p>

@@ -1,3 +1,5 @@
+> **비공식 포크:** [삼면도 조정 UI 개선안](extensions/three-view-adjustment/README.md)을 이 포크에서 검토합니다. Charakuru 공식 릴리스가 아닙니다.
+
 <p align="center"><img src="docs/images/readme-hero.png" alt="Charakuru: Tripo가 후원하는 AI 캐릭터 모델링 키트" width="100%"></p>
 
 <h1 align="center">Charakuru / きゃらくる</h1>
